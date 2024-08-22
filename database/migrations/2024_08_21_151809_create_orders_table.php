@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Customer;
+use App\Models\Seller;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Customer::class);
+            $table->foreignIdFor(Seller::class);
+            $table->decimal('total_amount',10,2);
+            $table->enum('status',['pending','completed','cancelled']);
+            $table->enum('payment_status',['unpaid','paid']);
             $table->timestamps();
         });
     }
