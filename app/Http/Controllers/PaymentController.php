@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order_items;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
-class OrderItemsController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class OrderItemsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order_items $order_items)
+    public function show(Payment $payment)
     {
         //
     }
@@ -42,7 +42,7 @@ class OrderItemsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Order_items $order_items)
+    public function edit(Payment $payment)
     {
         //
     }
@@ -50,7 +50,7 @@ class OrderItemsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Order_items $order_items)
+    public function update(Request $request, Payment $payment)
     {
         //
     }
@@ -58,7 +58,7 @@ class OrderItemsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Order_items $order_items)
+    public function destroy(Payment $payment)
     {
         //
     }
