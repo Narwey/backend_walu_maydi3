@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Product;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class)
                   ->constrained()
-                  ->onDelete('cascade'); // Adds cascading delete behavior
-            $table->foreignIdFor(Product::class)
+                  ->onDelete('cascade'); // Ensures user existence and cascades on delete
+            $table->foreignIdFor(Order::class)
                   ->constrained()
-                  ->onDelete('cascade'); // Adds cascading delete behavior
+                  ->onDelete('cascade'); // Ensures order existence and cascades on delete
             $table->decimal('amount', 10, 2);
-            $table->enum('payment_method', ['cash', 'paypal', 'card']); // Changed to snake_case for consistency
+            $table->enum('payment_method', ['cash', 'paypal', 'card']); // Ensuring consistency in enum values
             $table->enum('status', ['pending', 'completed', 'failed']);
             $table->timestamps();
         });

@@ -11,7 +11,7 @@ class Payment extends Model
 
     protected $fillable = [
         'user_id',
-        'product_id',
+        'order_id', // Changed from product_id to order_id
         'amount',
         'payment_method',
         'status',
@@ -26,10 +26,10 @@ class Payment extends Model
     }
 
     /**
-     * Get the product associated with the payment.
+     * Get the order associated with the payment.
      */
-    public function product()
+    public function order()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Order::class); // Changed from product to order
     }
 }

@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Category::class);
-            $table->decimal('price', 5, 2);
+            $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Category::class)->constrained()->onDelete('cascade');
+            $table->decimal('price', 8, 2);
             $table->integer('quantity');
-            $table->string('category');
             $table->enum('status',['available','sold out']);
             $table->timestamps();
         });

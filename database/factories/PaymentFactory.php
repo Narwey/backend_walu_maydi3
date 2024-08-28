@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Product;
 use App\Models\User;
@@ -18,7 +19,7 @@ class PaymentFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'product_id' => Product::factory(),
+            'order_id' => Order::factory(),
             'amount' => $this->faker->randomFloat(2, 5, 500),
             'payment_method' => $this->faker->randomElement(['cash', 'paypal', 'card']),
             'status' => $this->faker->randomElement(['pending', 'completed', 'failed']),
